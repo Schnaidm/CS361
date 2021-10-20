@@ -1,5 +1,5 @@
 function ProcessFile() {
-    var recipes = ["Roasted Chicken", "Baked Potatoes", "Ice Cream"];
+    var recipes = [["Roasted Chicken", "chicken", "duck sauce", "paprika", "salt", "pepper" ],["Baked Potatoes", "potatoes", "basil", "salt", "garlic powder", "onions"], ["Ice Cream", "milk", "sugar", "salt", "ice"]];
     
     var allText = [];
     var txtFile = new XMLHttpRequest();

@@ -2,7 +2,7 @@ import './App.css';
 import HomePage from "./HomePage";
 import React, { useState } from "react";
 import {BrowserRouter as Router, Route} from "react-router-dom";
-import ingredientList from "./ingredientList";
+import IngredientList from "./IngredientList";
 
 function App() {  
   return (
@@ -13,7 +13,7 @@ function App() {
               <HomePage />
             </Route>
             <Route path="/ingredientlist">
-              <ingredientList />
+              <IngredientList />
             </Route>
         </Router>
       </header>
