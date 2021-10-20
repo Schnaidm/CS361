@@ -2,6 +2,7 @@ import './App.css';
 import HomePage from "./HomePage";
 import React, { useState } from "react";
 import {BrowserRouter as Router, Route} from "react-router-dom";
+import ingredientList from "./ingredientList";
 
 function App() {  
   return (
@@ -10,6 +11,9 @@ function App() {
         <Router>
             <Route path="/" exact>
               <HomePage />
+            </Route>
+            <Route path="/ingredientlist">
+              <ingredientList />
             </Route>
         </Router>
       </header>
