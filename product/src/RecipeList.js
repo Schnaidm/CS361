@@ -9,7 +9,6 @@ function RecipeList(){
         let query = new URLSearchParams(useLocation().search);
         let recipe = query.toString().slice(7);
         recipe = recipe.replace(/\+/g, '%20');
-        recipe = decodeURIComponent(recipe);
         let recipeArray = recipeNames(recipe);
 
         return(

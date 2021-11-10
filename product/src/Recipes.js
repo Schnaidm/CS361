@@ -54,10 +54,15 @@ function ProcessFile(recipe) {
 		
 		fetch('http://flip3.engr.oregonstate.edu:9546/scrape', {
 			mode: "no-cors",
+			headers: {
+				'Access-Control-Allow-Origin': '*',
+				"Content-Type" : "application/json"
+			},
 			method: "POST",
 			body: JSON.stringify(post),
 			headers: {
-				'Access-Control-Allow-Origin': '*'
+				'Access-Control-Allow-Origin': '*',
+				"Content-Type" : "application/json"
 			},
 		})
 		.then(function(response) {

@@ -1,25 +1,22 @@
 import './App.css';
+import recipeNames from "./Recipes";
 import React, { useState } from "react";
+import ingredientList from "./IngredientList";
+import {database} from './RecipeComponents';
 
 function HomePage(){
     const [chosen, setRecipe] = useState ('');
     return(
-        <body>
-            <h1>
-                Welcome to the Shopping List website.
-            </h1>
-            <p>
-                Using the below field, please enter a recipe and we will direct you to a shopping list of its ingredients.
-            </p>
+        <body>  
             <form action="/ingredientlist" method="GET">
                 <fieldset>
-                    <label>Please enter the recipe you would like to see the ingredients of:
+                    <label>Please enter the recipe json here:
                         <input type ="text" name="chosen" id="chosen" required = "required"
-                        onChange={e => setRecipe(e.target.value)}/>
+                        onChange={e => setRecipe(e.recipeIngredients)}/>
                     </label>
             </fieldset>
                 <button classname="button" onClick= {e => {
-                    setRecipe(e.target.value);   
+                    setRecipe(e.target.value.recipeIngredients);   
                 }}> Get the Ingredients!</button>
             </form>
         </body>
