@@ -22,10 +22,9 @@ app.use(function (req, res, next) {
 app.post("/", (req, res) => {
     let request = req.body;
     let recipe = {"name" : "", recipeIngredients: ""};
-    recipe.name = request.recipe.name;
-    recipe.recipeIngredients = request.recipe.recipeIngredients
-    console.log(recipe);
-    res.send(req.body);  
+    recipe.name = request.name;
+    recipe.recipeIngredients = request.recipeIngredients;
+    res.send(recipe);  
 });
 
 app.listen(PORT, () => {
