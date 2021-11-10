@@ -13,7 +13,7 @@ function HomePage(){
                 Welcome to the Shopping List Website.
             </h1>
             <p>
-                Recipes in our Database:
+                Recipes Database:
             </p>
             <ul className = "database">
                 {database.map(database => {
@@ -23,7 +23,7 @@ function HomePage(){
              })}
             </ul>   
             <p>
-                Using the below field, please enter a recipe and we will direct you to a shopping list of its ingredients.
+                Using the below field, please enter a recipe in our system and we will direct you to a shopping list of its ingredients.
             </p>
             <form action="/ingredientlist" method="GET">
                 <fieldset>
