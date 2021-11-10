@@ -16,16 +16,16 @@ app.use(express.json())
 
 app.use(function (req, res, next) {
     req.headers['content-type'] = 'application/json';
+    res.header['content-type'] = 'application/json';
     next();
 });
 
 app.post("/", (req, res) => {
     let request = req.body;
     let recipe = {"name" : "", recipeIngredients: ""};
-    recipe.name = request.recipe.name;
-    recipe.recipeIngredients = request.recipe.recipeIngredients
-    console.log(recipe);
-    res.send(req.body);  
+    recipe.name = request.name;
+    recipe.recipeIngredients = request.recipeIngredients
+    res.send(JSON.stringify(recipe));  
 });
 
 app.listen(PORT, () => {

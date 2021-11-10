@@ -52,21 +52,24 @@ function ProcessFile(recipe) {
 		let post = {'URL' : ""};
 		post.URL = url;
 		
-		fetch('http://flip3.engr.oregonstate.edu:9546/scrape', {
-			mode: "no-cors",
+		fetch('http://localhost:8080', {
+			mode : "cors",
 			headers: {
 				'Access-Control-Allow-Origin': '*',
 				"Content-Type" : "application/json"
 			},
 			method: "POST",
-			body: JSON.stringify(post),
+			body: JSON.stringify({"name" : "Fr", "recipeIngredients" : ["g", "G"]}),
 			headers: {
 				'Access-Control-Allow-Origin': '*',
 				"Content-Type" : "application/json"
 			},
 		})
 		.then(function(response) {
-			alert(response);
+			return response.text();
+		})
+		.then (function(data){
+			alert(data);
 		});
 		let recipes = json1.recipe.recipeIngredients;
 		return (
