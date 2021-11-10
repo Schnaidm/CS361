@@ -1,8 +1,5 @@
 import './App.css';
-import RecipeList from "./RecipeList";
-import recipeNames from "./Recipes";
 import React, { useState } from "react";
-import ingredientList from "./IngredientList";
 
 function HomePage(){
     const [chosen, setRecipe] = useState ('');
@@ -21,7 +18,7 @@ function HomePage(){
                         onChange={e => setRecipe(e.target.value)}/>
                     </label>
             </fieldset>
-                <button onClick= {e => {
+                <button classname="button" onClick= {e => {
                     setRecipe(e.target.value);   
                 }}> Get the Ingredients!</button>
             </form>

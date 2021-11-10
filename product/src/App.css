@@ -1,0 +1,63 @@
+.App {
+  text-align: center;
+}
+
+.database{
+  list-style: none;
+  font-size: medium;
+  max-height:200px;
+  max-width: 300px;
+  align-items: left;
+  margin:0;
+  overflow:scroll;
+  padding:0;
+  text-indent:10px;
+  background-color: rgb(179, 180, 184);
+  margin-left: 400px;
+  font-size: 15px;
+}
+
+.Recipes {color: black; font-size: calc(20px + 2vmin);}
+
+.Shoppinglist {
+  background-image: url("image.jpg");
+  background-size: cover;
+  height: 750px;
+  width: 1080px;
+  padding-left: 540px;
+  padding-top: 100px;
+  font: italic 1.2em "Courier New";
+}
+.title{
+  margin-top: 100px;
+}
+
+
+
+.App-header {
+  background-color:rgb(159, 159, 160);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color:rgb(0, 0, 37);
+  padding: 5px;
+}
+
+
+.App-link {
+  color: #0cacd8;
+}
+
+h1 {
+  margin-top: 0%;
+  font-size: calc(40px + 2vmin);
+}
+
+a {
+  font-size: 20px;
+}
+
+
