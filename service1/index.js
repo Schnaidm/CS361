@@ -24,13 +24,8 @@ app.post("/", (req, res) => {
     let request = req.body;
     let recipe = {"name" : "", recipeIngredients: ""};
     recipe.name = request.name;
-<<<<<<< HEAD
     recipe.recipeIngredients = request.recipeIngredients
     res.send(JSON.stringify(recipe));  
-=======
-    recipe.recipeIngredients = request.recipeIngredients;
-    res.send(recipe);  
->>>>>>> f12575bb544f1d3129ee0d52cff1025d61ea2a19
 });
 
 app.listen(PORT, () => {
