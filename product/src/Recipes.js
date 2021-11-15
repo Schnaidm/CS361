@@ -1,6 +1,22 @@
-import axios from "axios";
-import React, {Component} from "react";
-import {database, urls} from "./RecipeComponents"; 
+
+import {database} from "./RecipeComponents"; 
+
+let urls = [
+    'https://www.allrecipes.com/recipe/20144/banana-banana-bread/',
+    'https://www.allrecipes.com/recipe/229733/simple-roasted-butternut-squash/',
+'https://www.allrecipes.com/recipe/20963/oven-roasted-potatoes/',
+'https://www.allrecipes.com/recipe/24771/basic-mashed-potatoes/',
+'https://www.allrecipes.com/recipe/230103/buttery-garlic-green-beans/',
+'https://www.allrecipes.com/recipe/214931/oven-roasted-asparagus/',
+'https://www.allrecipes.com/recipe/245524/dry-brine-turkey/',
+'https://www.allrecipes.com/recipe/83557/juicy-roasted-chicken/',
+'https://www.allrecipes.com/recipe/8985/spanish-rice-chicken-i/',
+'https://www.allrecipes.com/recipe/9191/pumpkin-soup/',
+'https://www.allrecipes.com/recipe/23439/perfect-pumpkin-pie/',
+'https://www.allrecipes.com/recipe/10813/best-chocolate-chip-cookies/',
+'https://www.allrecipes.com/recipe/9870/easy-sugar-cookies/',
+'https://www.allrecipes.com/recipe/14231/guacamole/'
+];
 
 const json1 = {
 	"recipe": {
@@ -41,39 +57,35 @@ const json1 = {
 		]
 	}
 }
-
-function ProcessFile(recipe) {
+async function ProcessFile(recipe) {
 		let url;
-		for (let i = 0; i < database.length; i++){
-			if (database[i].toUpperCase() === recipe.toUpperCase()){
+		for (let i = 0; i < database.length; i++) {
+			if (database[i].toLowerCase() === recipe.toLowerCase()){
 				url = urls[i];
 			};
 		};
-		let post = {'URL' : ""};
-		post.URL = url;
-		
-		fetch('http://localhost:8080', {
+		let post = {'URL' : ''};
+		post["URL"] =  url;
+		let recipejson = await fetch('https://cs361recipescraper.herokuapp.com/scrape', {
+			method: "POST",	
 			mode : "cors",
 			headers: {
-				'Access-Control-Allow-Origin': '*',
+				"Accept" : "application/json",
 				"Content-Type" : "application/json"
 			},
-			method: "POST",
-			body: JSON.stringify({"name" : "Fr", "recipeIngredients" : ["g", "G"]}),
-			headers: {
-				'Access-Control-Allow-Origin': '*',
-				"Content-Type" : "application/json"
-			},
+			
+			body: JSON.stringify(post),
 		})
 		.then(function(response) {
-			return response.text();
+			return response.json();
 		})
 		.then (function(data){
-			alert(data);
+			let recipe = data.recipe.recipeIngredients;
+			return recipe
 		});
-		let recipes = json1.recipe.recipeIngredients;
+		alert(recipejson);
 		return (
-			recipes
+			json1.recipe.recipeIngredients
 		);
 	};
 

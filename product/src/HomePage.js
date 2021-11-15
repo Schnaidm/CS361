@@ -1,8 +1,5 @@
 import './App.css';
-import RecipeList from "./RecipeList";
-import recipeNames from "./Recipes";
 import React, { useState } from "react";
-import ingredientList from "./IngredientList";
 import {database} from './RecipeComponents';
 
 function HomePage(){

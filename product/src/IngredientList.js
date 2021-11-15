@@ -1,6 +1,5 @@
 import './App.css';
 import RecipeList from "./RecipeList";
-import recipeNames from "./Recipes";
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -17,17 +16,18 @@ function IngredientList(){
             found = 1;
         };
     };
+    
     if (found === 1){
         return(
             <body className="Shoppinglist">
                 <h1 className="title">
                     Shopping List
                 </h1>
-                <h3>
+                <h2>
                     {recipe}
-                </h3>
+                </h2>
                 <> 
-                {<RecipeList recipeNames={recipeNames}></RecipeList>}
+                {<RecipeList></RecipeList>}
                 </>
                 <p>
                 <Link className="App-link" to = "/"> Return to the homepage</Link>
