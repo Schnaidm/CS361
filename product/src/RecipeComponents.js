@@ -1,3 +1,4 @@
+//recipes in the database
 let database = [
     "Banana Bread",
     "Roasted Butternut Squash",

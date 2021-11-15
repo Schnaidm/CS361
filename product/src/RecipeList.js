@@ -22,6 +22,7 @@ let urls = [
 
 function RecipeList(){
 
+        //get the requested recipe from the url 
        var query = new URLSearchParams(useLocation().search);
         query = query.toString().replace(/\+/g, '%20');
         query = decodeURIComponent(query)
@@ -31,18 +32,21 @@ function RecipeList(){
         const [recipes, setrecipes] = useState();
         const [Images, setImages] = useState();
 
+        //search fro the recipe in the database array and find it's matching url
         let url;
 		for (let i = 0; i < database.length; i++) {
 			if (database[i].toLowerCase() === recipe.toLowerCase()){
 				url = urls[i];
 			};
 		};
+        //add the url to the variable to hold the recipe post and image post requests
 		let post = {'URL' : ''};
 		post["URL"] =  url;
         let image = {'recipe' : {'recipe_url' : ''}};
         image["recipe"]["recipe_url"] = url;
 
         useEffect(() => {
+            //fetch the image json 
             fetch('https://cs360-recipe-image-finder.herokuapp.com/', {
             method: "POST",	
             mode : "cors",
@@ -60,6 +64,7 @@ function RecipeList(){
                 let picture = data.recipe.image_url;
                 setImages(picture);
             })
+            //fetch the recipes json
             .then(
             fetch('https://cs361recipescraper.herokuapp.com/scrape', {
 			method: "POST",	
@@ -77,6 +82,7 @@ function RecipeList(){
             .then (function(data){
                 let recipe = data.recipe.recipeIngredients;
                 setrecipes(recipe);
+                //after all fectches are done, set isloading to false so the code will resume
                 setLoading(false);
             })
             );
@@ -89,6 +95,7 @@ function RecipeList(){
         }
 
         return(
+            //display the picture from the 1st fetch and a list of the recipe Ingredients from the 2nd fetch
         <div className= "Recipes">
             <body> 
                 <img src={Images} alt = "new"/>
