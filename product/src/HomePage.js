@@ -5,13 +5,13 @@ import {database} from './RecipeComponents';
 function HomePage(){
     const [chosen, setRecipe] = useState ('');
     return(
-        <body>
+        <body className="Homepage">
             <h1>
                 Welcome to the Shopping List Website.
             </h1>
-            <p>
-                Recipes Database:
-            </p>
+            <h3>
+                Hover over me to see the recipe database in list format:
+            </h3>
             <ul className = "database">
                 {database.map(database => {
                     return(
@@ -20,14 +20,18 @@ function HomePage(){
              })}
             </ul>   
             <p>
-                Using the below field, please enter a recipe in our system and we will direct you to a shopping list of its ingredients.
+                Please choose a recipe from our database and <br />you will be redirected to a shopping list for its ingredients:
             </p>
             <form action="/ingredientlist" method="GET">
                 <fieldset>
-                    <label>Please enter the recipe here:
-                        <input type ="text" name="chosen" id="chosen" required = "required"
-                        onChange={e => setRecipe(e.target.value)}/>
-                    </label>
+                    <select id="chosen" name="chosen" onChange={e => setRecipe(e.target.value)}>
+                        <option>choose a recipe</option>
+                    {database.map(database => {
+                        return(
+                            <option  key={database}>{database}</option>                
+                        );
+                 })}
+                 </select>
             </fieldset>
                 <button classname="button" onClick= {e => {
                     setRecipe(e.target.value);   

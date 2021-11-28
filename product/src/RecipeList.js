@@ -98,7 +98,7 @@ function RecipeList(){
             //display the picture from the 1st fetch and a list of the recipe Ingredients from the 2nd fetch
         <div className= "Recipes">
             <body> 
-                <img src={Images} alt = "new"/>
+                <img src={Images} alt = "loading"/>
                 <ul>
                     {recipes.map(recipes => {
                         return(

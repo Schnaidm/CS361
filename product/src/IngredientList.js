@@ -22,15 +22,19 @@ function IngredientList(){
     if (found === 1){
         return(
             <body className="Shoppinglist">
+                
                 <h1 className="title">
                     Shopping List
                 </h1>
                 <h2>
                     {recipe}
                 </h2>
+                <div className="ingredientlist">
                 <> 
                 {<RecipeList></RecipeList>}
                 </>
+                
+                </div>
                 <p>
                 <Link className="App-link" to = "/"> Return to the homepage</Link>
                 </p>
@@ -40,6 +44,7 @@ function IngredientList(){
         //if the recipe was not found, display an error message
         return(
             <body className="Shoppinglist">
+            
                 <h1 className="title">
                     Shopping List
                 </h1>
